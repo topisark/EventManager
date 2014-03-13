@@ -1,0 +1,9 @@
+<%= bootstrap_form_for(@event) do |f| %>
+    <%= f.text_field :name, placeholder:"Name" %>
+    <%= f.label "Starts at" %>
+    <div class="form-inline">
+      <%= f.datetime_select :time %>
+    </div>
+    <br>
+    <%= f.submit "Create event", class: "btn btn-primary" %>
+<% end %>
