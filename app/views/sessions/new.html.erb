@@ -1,0 +1,12 @@
+<h1>Log in</h1>
+
+<form class="form-inline" role="form" method="POST">
+  <div class="form-group">
+    <input type="text" placeholder="Username" id="username" name="username" class="form-control input-sm">
+  </div>
+  <div class="form-group">
+    <input type="password" placeholder="Password" id="password" name="password" class="form-control input-sm">
+  </div>
+  <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+  <button type="submit" class="btn btn-primary btn-sm">Sign in</button>
+</form>
