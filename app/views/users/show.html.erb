@@ -1,7 +1,12 @@
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+<h1><%= @user.username %></h1>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<% if @user.events.empty? %>
+    <p>User has no events.</p>
+<% else %>
+    <b>Events owned by user: </b>
+    <ul>
+      <% @user.events.each do |e| %>
+          <li>  <%= link_to e.name, e %> </li>
+      <% end %>
+    </ul>
+<% end %>
