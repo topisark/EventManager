@@ -19,12 +19,13 @@ ActiveRecord::Schema.define(version: 20140318090333) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.datetime "ends_at"
   end
 
   create_table "users", force: true do |t|
-    t.string "username"
-    t.string "password_digest"
+    t.string   "username"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "password_digest"
   end
 
 end
