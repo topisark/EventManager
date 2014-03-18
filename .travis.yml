@@ -1,10 +1,15 @@
 language: ruby
-
 rvm:
- - 2.0.0
-
+- 2.0.0
 script:
- - bundle exec rake db:migrate --trace
- - RAILS_ENV=test bundle exec rake db:migrate --trace
- - bundle exec rake db:test:prepare
- - bundle exec rspec -fd spec/
+- bundle exec rake db:migrate --trace
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec -fd spec/
+deploy:
+  provider: heroku
+  api_key:
+    secure: L2+Jb2fOkPAgWlkf0qvndhSWdNJggkIaRhplk7defh4HGAZKUmGZs4hSoH/+mvBTjwNcOC13vk2RlN2EbK7EqoN8aqRmNeNxEpZPuy6x8XLAwk2Q/vFpRln8j3AxmzB6TPeL68/b2bUjDmDgZfHGgU9Tru6X2Hyvn5Pxi4ldViw=
+  app: topineventit
+  on:
+    repo: topisark/EventManager
