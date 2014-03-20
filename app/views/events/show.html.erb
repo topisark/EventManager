@@ -2,6 +2,29 @@
 
 <p> <%= @event.description %> </p>
 
+<% if current_user %>
+    <% unless current_user.participations.find_by(event_id: @event.id) %>
+        <p>
+          <%= bootstrap_form_for(@participation) do |f| %>
+              <%= f.hidden_field(:event_id) %>
+              <%= f.submit value:"Join the event", class:"btn btn-primary"%>
+          <% end %>
+        </p>
+    <% end %>
+<% else %>
+    <p>
+      <%= bootstrap_form_for(@participation) do |f| %>
+          <%= f.hidden_field(:unregistered, value: true) %>
+          <%= f.submit value:"Join the event", class:"btn btn-primary"%>
+      <% end %>
+    </p>
+<% end %>
+
+<p>
+  <strong>Time:</strong>
+  <%= @event.time %>
+</p>
+
 <% if @event.participations.empty? %>
     <p>No participants right now.</p>
 <% else %>
@@ -21,20 +44,4 @@
       <% end %>
     </table>
 <% end %>
-
-<% if current_user %>
-    <% unless current_user.participations.find_by(event_id: @event.id) %>
-        <p>
-          <%= bootstrap_form_for(@participation) do |f| %>
-              <%= f.hidden_field(:event_id) %>
-              <%= f.submit value:"Join the event", class:"btn btn-primary"%>
-          <% end %>
-        </p>
-    <% end %>
-<% end %>
-
-<p>
-  <strong>Time:</strong>
-  <%= @event.time %>
-</p>
 

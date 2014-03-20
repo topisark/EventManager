@@ -25,7 +25,7 @@ class ParticipationsController < ApplicationController
   # POST /participations.json
   def create
     @participation = Participation.new(participation_params)
-    @participation.user_id = current_user.id
+    @participation.user_id = current_user.id unless @participation.unregistered == true
     respond_to do |format|
       if @participation.save
         format.html { redirect_to :back, notice: 'Participation was successfully created.' }
