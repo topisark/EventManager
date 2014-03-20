@@ -1,4 +1,6 @@
 Eventmanager::Application.routes.draw do
+  resources :participations
+
   resources :event_types
 
   resources :users

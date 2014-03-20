@@ -10,6 +10,8 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @participation = Participation.new
+    @participation.event = @event
   end
 
   # GET /events/new
