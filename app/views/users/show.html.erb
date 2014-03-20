@@ -10,3 +10,14 @@
       <% end %>
     </ul>
 <% end %>
+
+<% if @user.participations.empty? %>
+    <p>User has not participated in anything.</p>
+<% else %>
+    <b>Participations: </b>
+    <ul>
+      <% @user.participations.each do |e| %>
+          <li>  <%= link_to e.event.name, e.event %> </li>
+      <% end %>
+    </ul>
+<% end %>
