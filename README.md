@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/topisark/EventManager.png?branch=master)](https://travis-ci.org/topisark/EventManager)
 EventManager
 ============
+Pahasti kesken. :)
 
 Ruby-on-Rails
 
